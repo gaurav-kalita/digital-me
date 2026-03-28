@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+loguru
+python-dotenv
+pydantic
+llama-index
+httpx
+pytest
+sentence_transformers
