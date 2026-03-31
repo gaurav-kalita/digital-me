@@ -1,9 +1,12 @@
-# Placeholder for chat request/response schemas
-from pydantic import BaseModel
-from typing import Any
+from typing import List
+from pydantic import BaseModel, Field
+
 
 class ChatRequest(BaseModel):
-    question: str
+    question: str = Field(..., min_length=3, max_length=512)
+
 
 class ChatResponse(BaseModel):
-    answer: Any
+    answer: str
+    sources: List[str] = Field(default_factory=list)
+    query: str

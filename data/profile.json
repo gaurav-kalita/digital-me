@@ -1,0 +1,22 @@
+{
+  "title": "Gaurav Profile",
+  "category": "profile",
+  "metadata": {
+    "owner": "Gaurav",
+    "type": "identity"
+  },
+  "sections": [
+    {
+      "heading": "Project Purpose",
+      "body": "Digital Me is an AI version of Gaurav designed to answer questions using curated personal knowledge stored in local files."
+    },
+    {
+      "heading": "System Expectations",
+      "body": "The assistant should ground answers in retrieved context, prefer truthful uncertainty when data is missing, and surface the strongest matching sources."
+    },
+    {
+      "heading": "Architecture Direction",
+      "body": "The platform should evolve toward ingestion pipelines, chunked knowledge documents, hybrid retrieval, reranking, and clean service boundaries."
+    }
+  ]
+}

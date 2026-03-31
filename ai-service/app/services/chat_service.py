@@ -1,54 +1,59 @@
-from typing import List
-from app.rag.query_enhancer import QueryEnhancer
-from app.rag.retriever import Retriever
-from app.rag.prompt_builder import PromptBuilder
-from app.rag.llm_client import LLMClient
-from app.core.logger import logger
+from typing import Any, Optional
+
 from app.core.exceptions import AIServiceError
+from app.core.logger import logger
+from app.models.chat import ChatResponse
+from app.rag.llm_client import LLMClient
+from app.rag.pipeline import RAGPipeline
+
 
 class ChatService:
     def __init__(
         self,
-        retriever: Retriever,
-        llm: LLMClient,
-        prompt_builder: PromptBuilder,
-        query_enhancer: QueryEnhancer,
+        llm: Optional[Any] = None,
+        rag_pipeline: Optional[RAGPipeline] = None,
     ):
-        self.retriever = retriever
-        self.llm = llm
-        self.prompt_builder = prompt_builder
-        self.query_enhancer = query_enhancer
+        self.llm = llm or LLMClient()
+        self.rag_pipeline = rag_pipeline or RAGPipeline()
 
-    async def ask(self, question: str, user_id: str) -> str:
+    async def chat(self, question: str, user: Optional[Any] = None) -> ChatResponse:
         try:
+            user_id = self._get_user_id(user)
             logger.info("Chat request received", extra={"user_id": user_id})
 
-            # 1. Enhance query
-            enhanced_query = await self.query_enhancer.enhance(question)
-            logger.debug("Query enhanced", extra={"enhanced_query": enhanced_query})
+            rag_result = await self.rag_pipeline.prepare(question)
+            docs = rag_result.context_items
 
-            # 2. Retrieve documents
-            docs = self.retriever.retrieve(enhanced_query)
             if not docs:
-                logger.warning("No documents found", extra={"query": question})
-                return "I don’t have enough information to answer that."
+                logger.warning("No documents found", extra={"query": question, "user_id": user_id})
+                return ChatResponse(
+                    answer="I don't have enough information to answer that yet.",
+                    sources=[],
+                    query=rag_result.processed_query.get("rewritten_query", question),
+                )
 
-            # 3. Build prompt
-            prompt = self.prompt_builder.build(question, docs)
+            response = await self.llm.generate(rag_result.prompt)
 
-            # 4. Call LLM
-            response = await self.llm.generate(prompt)
-
-            # 5. Post-processing
-            final_response = self._post_process(response)
-
-            logger.info("Response generated successfully")
-            return final_response
-
-        except Exception as e:
+            logger.info("Response generated successfully", extra={"user_id": user_id})
+            return ChatResponse(
+                answer=self._post_process(response),
+                sources=[doc.to_source_label() for doc in docs],
+                query=rag_result.processed_query.get("rewritten_query", question),
+            )
+        except AIServiceError:
+            raise
+        except Exception as exc:
             logger.error("ChatService failed", exc_info=True)
-            raise AIServiceError("Failed to process request") from e
+            raise AIServiceError("Failed to process request") from exc
+
+    async def ask(self, question: str, user_id: str) -> str:
+        response = await self.chat(question, user={"sub": user_id})
+        return response.answer
+
+    def _get_user_id(self, user: Optional[Any]) -> str:
+        if isinstance(user, dict):
+            return str(user.get("sub", "anonymous"))
+        return "anonymous"
 
     def _post_process(self, response: str) -> str:
-        # Add any sanitization / formatting
         return response.strip()

@@ -1,6 +1,5 @@
-from fastapi import Depends, Request
+from fastapi import Depends, Request, HTTPException, status
 from app.core.security import verify_jwt
-from fastapi import HTTPException, status
 from typing import Any
 
 async def get_current_user(request: Request) -> Any:

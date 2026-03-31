@@ -1,19 +1,29 @@
+"""LLM clients used by the generation layer."""
+
 from abc import ABC, abstractmethod
-import asyncio
-from tenacity import retry, stop_after_attempt, wait_exponential
+
 import httpx
+from tenacity import retry, stop_after_attempt, wait_exponential
+
 from app.core.config import settings
 from app.core.logger import logger
 
+
 class BaseLLMClient(ABC):
+    """Abstract contract for generation providers."""
+
     @abstractmethod
     async def generate(self, prompt: str) -> str:
-        pass
+        ...
+
 
 class OllamaLLMClient(BaseLLMClient):
-    def __init__(self, ollama_url: str = None, model: str = None):
-        self.ollama_url = ollama_url or getattr(settings, "OLLAMA_URL", "http://localhost:11434")
-        self.model = model or getattr(settings, "OLLAMA_MODEL", "gemma:3b")
+    """Local generation provider backed by Ollama."""
+
+    def __init__(self, ollama_url: str = None, model: str = None, timeout_seconds: int = 60):
+        self.ollama_url = ollama_url or settings.OLLAMA_URL
+        self.model = model or settings.OLLAMA_MODEL
+        self.timeout_seconds = timeout_seconds
 
     @retry(
         stop=stop_after_attempt(3),
@@ -21,36 +31,32 @@ class OllamaLLMClient(BaseLLMClient):
     )
     async def generate(self, prompt: str) -> str:
         try:
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(timeout=self.timeout_seconds) as client:
                 response = await client.post(
-                    f"{self.ollama_url}/api/generate",
+                    "%s/api/generate" % self.ollama_url,
                     json={
                         "model": self.model,
                         "prompt": prompt,
-                        "stream": False
+                        "stream": False,
                     },
-                    timeout=60
                 )
                 response.raise_for_status()
-                data = response.json()
-                return data.get("response") or data.get("message", "")
-        except Exception as e:
-            logger.error("Ollama LLM call failed, retrying...", exc_info=True)
-            raise e
+                payload = response.json()
+                return (payload.get("response") or "").strip()
+        except Exception:
+            logger.error("Ollama LLM call failed", exc_info=True)
+            raise
 
-# Example: add more LLM clients by subclassing BaseLLMClient
-# class OpenAILLMClient(BaseLLMClient): ...
 
-# Factory for plug-and-play
 class LLMClientFactory:
+    """Factory that keeps provider selection in one place."""
+
     @staticmethod
     def get_client(llm_type: str = None, **kwargs) -> BaseLLMClient:
-        llm_type = llm_type or getattr(settings, "LLM_TYPE", "ollama")
-        if llm_type == "ollama":
+        selected_type = llm_type or settings.LLM_TYPE
+        if selected_type == "ollama":
             return OllamaLLMClient(**kwargs)
-        # elif llm_type == "openai":
-        #     return OpenAILLMClient(**kwargs)
-        raise ValueError(f"Unsupported LLM type: {llm_type}")
+        raise ValueError("Unsupported LLM type: %s" % selected_type)
 
-# Default for DI
+
 LLMClient = LLMClientFactory.get_client

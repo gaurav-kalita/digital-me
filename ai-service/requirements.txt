@@ -7,3 +7,5 @@ llama-index
 httpx
 pytest
 sentence_transformers
+PyJWT
+faiss-cpu
