@@ -1,6 +1,6 @@
 # pipeline.py
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 
 class QueryProcessingPipeline:
@@ -42,6 +42,7 @@ class QueryProcessingPipeline:
             "rewritten_query": rewritten,
             "embedding": embedding,
             "metadata": metadata,
+            "queries": self._build_queries(normalized, rewritten),
         }
 
     # --------------------------
@@ -101,7 +102,23 @@ class QueryProcessingPipeline:
 
     def _log_error(self, message: str, error: Exception):
         if self.logger:
-            self.logger.error(message, exc_info=True)
+            self.logger.opt(exception=error).error(message)
         else:
             # fallback (can be removed in prod)
             print(f"[ERROR] {message}: {str(error)}")
+
+    def _build_queries(self, normalized_query: str, rewritten_query: str) -> List[str]:
+        queries: List[str] = []
+        if hasattr(self.rewriter, "expand"):
+            try:
+                for value in self.rewriter.expand(rewritten_query):
+                    if value and value not in queries:
+                        queries.append(value)
+            except Exception as error:
+                self._log_error("Query expansion failed", error)
+
+        for value in [rewritten_query, normalized_query]:
+            if value and value not in queries:
+                queries.append(value)
+
+        return queries

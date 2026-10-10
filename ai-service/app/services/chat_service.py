@@ -1,49 +1,74 @@
 from typing import Any, Optional
 
-from app.core.exceptions import AIServiceError
+from app.application.conversation.dto import AnswerQuestionCommand
+from app.application.guardrails.service import GuardrailService
+from app.application.conversation.ports import AnswerQuestionUseCase
+from app.core.exceptions import AIServiceError, GuardrailViolation
 from app.core.logger import logger
 from app.models.chat import ChatResponse
-from app.rag.llm_client import LLMClient
-from app.rag.pipeline import RAGPipeline
+
+
+class _LegacyAnswerQuestionAdapter:
+    """Compatibility adapter for legacy tests and transitional callers."""
+
+    def __init__(self, rag_pipeline):
+        self.rag_pipeline = rag_pipeline
+
+    async def execute(self, command: AnswerQuestionCommand):
+        rag_result = await self.rag_pipeline.answer(command.question)
+        if not getattr(rag_result, "context_items", []):
+            return type(
+                "AnswerQuestionResult",
+                (),
+                {
+                    "answer": "I don't have enough information to answer that yet.",
+                    "sources": [],
+                    "query": rag_result.processed_query.get("rewritten_query", command.question),
+                },
+            )()
+
+        return type(
+            "AnswerQuestionResult",
+            (),
+            {
+                "answer": rag_result.answer,
+                "sources": [item.to_source_label() for item in rag_result.context_items],
+                "query": rag_result.processed_query.get("rewritten_query", command.question),
+            },
+        )()
 
 
 class ChatService:
     def __init__(
         self,
-        llm: Optional[Any] = None,
-        rag_pipeline: Optional[RAGPipeline] = None,
+        answer_question: Optional[AnswerQuestionUseCase] = None,
+        rag_pipeline=None,
+        guardrails: Optional[GuardrailService] = None,
     ):
-        self.llm = llm or LLMClient()
-        self.rag_pipeline = rag_pipeline or RAGPipeline()
+        self.guardrails = guardrails or GuardrailService()
+        if answer_question is None:
+            if rag_pipeline is None:
+                raise ValueError("ChatService requires an answer use case or a legacy rag_pipeline")
+            answer_question = _LegacyAnswerQuestionAdapter(rag_pipeline)
+        self.answer_question = answer_question
 
     async def chat(self, question: str, user: Optional[Any] = None) -> ChatResponse:
         try:
-            user_id = self._get_user_id(user)
-            logger.info("Chat request received", extra={"user_id": user_id})
-
-            rag_result = await self.rag_pipeline.prepare(question)
-            docs = rag_result.context_items
-
-            if not docs:
-                logger.warning("No documents found", extra={"query": question, "user_id": user_id})
-                return ChatResponse(
-                    answer="I don't have enough information to answer that yet.",
-                    sources=[],
-                    query=rag_result.processed_query.get("rewritten_query", question),
-                )
-
-            response = await self.llm.generate(rag_result.prompt)
-
-            logger.info("Response generated successfully", extra={"user_id": user_id})
-            return ChatResponse(
-                answer=self._post_process(response),
-                sources=[doc.to_source_label() for doc in docs],
-                query=rag_result.processed_query.get("rewritten_query", question),
+            safe_question = self.guardrails.validate_question(question)
+            result = await self.answer_question.execute(
+                AnswerQuestionCommand(question=safe_question, user_id=self._get_user_id(user))
             )
+            return ChatResponse(
+                answer=self._post_process(self.guardrails.sanitize_answer(result.answer)),
+                sources=result.sources,
+                query=result.query,
+            )
+        except GuardrailViolation:
+            raise
         except AIServiceError:
             raise
         except Exception as exc:
-            logger.error("ChatService failed", exc_info=True)
+            logger.bind(user_id=self._get_user_id(user)).opt(exception=exc).error("ChatService failed")
             raise AIServiceError("Failed to process request") from exc
 
     async def ask(self, question: str, user_id: str) -> str:

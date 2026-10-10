@@ -1,0 +1,49 @@
+{
+  "title": "Digital Me Project",
+  "document_type": "project",
+  "category": "ai_product",
+  "owner": "Gaurav Kalita",
+  "project_name": "Digital Me",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "summary": "An AI-powered Retrieval-Augmented Generation platform that lets users upload personal documents and interact with them conversationally using grounded AI responses.",
+  "role": "Designed and developed the complete full-stack architecture, including frontend experience, AI retrieval pipeline, backend APIs, and vector search integration.",
+  "tech_stack": [
+    "Next.js 14",
+    "TypeScript",
+    "FastAPI",
+    "LangChain",
+    "Azure OpenAI",
+    "Pinecone",
+    "Tailwind CSS",
+    "SSE Streaming"
+  ],
+  "key_impact": [
+    "Built an end-to-end conversational AI system capable of semantic search across uploaded documents.",
+    "Implemented chunking, embeddings, context re-ranking, and caching to improve retrieval accuracy and reduce hallucinations.",
+    "Optimized repeated query performance with intelligent caching and source-aware response generation.",
+    "Developed scalable streaming-based AI responses for improved user experience and lower perceived latency."
+  ],
+  "sections": [
+    {
+      "heading": "What It Does",
+      "body": "Digital Me is an AI-powered Retrieval-Augmented Generation platform that lets users upload personal documents and interact with them conversationally using grounded AI responses."
+    },
+    {
+      "heading": "Role",
+      "body": "Designed and developed the complete full-stack architecture, including the frontend experience, AI retrieval pipeline, backend APIs, and vector search integration."
+    },
+    {
+      "heading": "Tech Stack",
+      "body": "Next.js 14, TypeScript, FastAPI, LangChain, Azure OpenAI, Pinecone, Tailwind CSS, SSE Streaming."
+    },
+    {
+      "heading": "Key Impact",
+      "body": "Built an end-to-end conversational AI system, improved retrieval accuracy with chunking and re-ranking, optimized repeated queries with caching, and delivered scalable streaming responses."
+    }
+  ]
+}

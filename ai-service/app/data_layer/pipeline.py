@@ -9,15 +9,9 @@ import json
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from app.core.config import settings
 from app.core.logger import logger
-from app.data_layer.chunker import ChunkerFactory
-from app.data_layer.cleaner import CleanerFactory
-from app.data_layer.embedder import build_default_embedder
-from app.data_layer.filesystem import FileSystemDocumentLoader
-from app.data_layer.interfaces import Chunker, DocumentLoader, Embedder, TextCleaner, VectorStore
+from app.core.ports import ArtifactStore, Chunker, DocumentLoader, Embedder, TextCleaner, VectorStore
 from app.data_layer.models import IndexedChunk, KnowledgeDocument
-from app.data_layer.vector_store import build_default_vector_store
 
 
 class JsonArtifactStore:
@@ -49,7 +43,7 @@ class OfflineIndexingPipeline:
         chunker: Chunker,
         embedder: Embedder,
         vector_store: VectorStore,
-        artifact_store: Optional[JsonArtifactStore] = None,
+        artifact_store: Optional[ArtifactStore] = None,
     ):
         self.loader = loader
         self.cleaner = cleaner
@@ -94,16 +88,3 @@ class OfflineIndexingPipeline:
             source_path=document.source_path,
             metadata=document.metadata,
         )
-
-
-def build_default_offline_pipeline(data_dir: str, artifact_path: str, embedding_model: Optional[str] = None):
-    """Factory used by repositories and scripts."""
-
-    return OfflineIndexingPipeline(
-        loader=FileSystemDocumentLoader(data_dir),
-        cleaner=CleanerFactory.create(),
-        chunker=ChunkerFactory.create(),
-        embedder=build_default_embedder(embedding_model),
-        vector_store=build_default_vector_store(),
-        artifact_store=JsonArtifactStore(artifact_path),
-    )

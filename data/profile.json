@@ -1,22 +1,84 @@
 {
-  "title": "Gaurav Profile",
-  "category": "profile",
+  "title": "Gaurav Kalita Profile",
+  "document_type": "profile",
+  "category": "identity",
+  "owner": "Gaurav Kalita",
+  "preferred_name": "Gaurav",
+  "pronouns": "he/him",
+  "current_location": "Guwahati, Assam, India",
+  "timezone": "Asia/Kolkata",
+  "show_location": true,
+  "primary_role": "Full-Stack Engineer",
+  "current_role": "Lead Frontend Engineer",
+  "current_company": "Stickman Cyber",
+  "target_roles": [
+    "Senior Full-Stack Engineer",
+    "Senior Frontend Engineer",
+    "AI-focused Full-Stack Engineer",
+    "Product Engineer"
+  ],
+  "availability": {
+    "notice_period": "1 month",
+    "remote_preference": "remote",
+    "relocation_open": true
+  },
+  "contact": {
+    "email": "gauravkalita.official@gmail.com",
+    "phone": "+91 9706760287",
+    "linkedin": "https://www.linkedin.com/in/gaurav-k-86a9561a1a",
+    "github": "https://github.com/gaurav-kalita",
+    "blog": "Medium writing on frontend engineering, full-stack architecture, AI workflows, and scalable systems"
+  },
+  "education": [
+    {
+      "degree": "Bachelor of Engineering",
+      "field": "Electronics and Communication",
+      "grade": "7.2"
+    }
+  ],
   "metadata": {
-    "owner": "Gaurav",
-    "type": "identity"
+    "version": "3.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "audience": [
+      "HR",
+      "Recruiters",
+      "Engineering Managers",
+      "Senior Engineers",
+      "Founders",
+      "CEOs",
+      "AI Assistant"
+    ],
+    "updated_at": "2026-05-23"
   },
   "sections": [
     {
-      "heading": "Project Purpose",
-      "body": "Digital Me is an AI version of Gaurav designed to answer questions using curated personal knowledge stored in local files."
+      "heading": "Identity",
+      "body": "Gaurav Kalita prefers to be called Gaurav. Pronouns: he/him. Current location: Guwahati, Assam, India. Timezone: Asia/Kolkata. Location can be shown publicly."
     },
     {
-      "heading": "System Expectations",
-      "body": "The assistant should ground answers in retrieved context, prefer truthful uncertainty when data is missing, and surface the strongest matching sources."
+      "heading": "Primary Role",
+      "body": "Primary professional identity: Full-Stack Engineer. Current role: Lead Frontend Engineer at Stickman Cyber."
     },
     {
-      "heading": "Architecture Direction",
-      "body": "The platform should evolve toward ingestion pipelines, chunked knowledge documents, hybrid retrieval, reranking, and clean service boundaries."
+      "heading": "Career Direction",
+      "body": "Targets Senior Full-Stack Engineer, Senior Frontend Engineer, AI-focused Full-Stack Engineer, and Product Engineer roles."
+    },
+    {
+      "heading": "Availability",
+      "body": "Notice period is 1 month. Prefers remote roles, but is open to relocation for strong opportunities."
+    },
+    {
+      "heading": "Contact",
+      "body": "Email: gauravkalita.official@gmail.com. Phone: +91 9706760287. LinkedIn: https://www.linkedin.com/in/gaurav-k-86a9561a1a. GitHub: https://github.com/gaurav-kalita."
+    },
+    {
+      "heading": "Education",
+      "body": "Bachelor of Engineering in Electronics and Communication. Grade: 7.2."
+    },
+    {
+      "heading": "Summary",
+      "body": "Gaurav is a full-stack engineer with strong frontend architecture expertise, backend experience, and a growing focus on AI-powered applications, RAG systems, and production-grade product engineering."
     }
   ]
 }

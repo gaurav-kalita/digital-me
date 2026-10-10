@@ -1,2 +1,45 @@
+# Environment and secrets
 .env
-.env
+.env.*
+!.env.example
+!.env.local.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+venv/
+.venv/
+
+# RAG index artifacts (rebuild with scripts/rebuild_index.py)
+data/.index/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Scratch and local experiments
+test_scratch/
+rag-tests-*/
+.pytest_tmp/
+
+# Logs
+*.log

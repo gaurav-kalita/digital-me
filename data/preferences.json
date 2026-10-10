@@ -1,0 +1,46 @@
+{
+  "title": "Gaurav Kalita Architecture Preferences",
+  "document_type": "preferences",
+  "category": "working_style",
+  "owner": "Gaurav Kalita",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "preferences": {
+    "architecture_values": [
+      "Scalability",
+      "Developer experience",
+      "Long-term maintainability",
+      "Pragmatic tradeoff evaluation",
+      "End-to-end ownership"
+    ],
+    "decision_style": [
+      "Choose architecture based on product stage, scale, team bandwidth, and budget.",
+      "Prefer modular monoliths early when they reduce complexity.",
+      "Move toward decomposition only when operational or domain complexity justifies it."
+    ],
+    "working_style": [
+      "Thrives in high-growth startup environments.",
+      "Likes fast iteration with strong engineering autonomy.",
+      "Prefers clean, readable, well-structured codebases.",
+      "Enjoys solving architecture and performance problems."
+    ]
+  },
+  "sections": [
+    {
+      "heading": "Architecture Values",
+      "body": "Scalability, developer experience, long-term maintainability, pragmatic tradeoff evaluation, and end-to-end ownership."
+    },
+    {
+      "heading": "Decision Style",
+      "body": "Chooses architecture based on product stage, scale, team bandwidth, and budget. Prefers modular monoliths early and decomposition only when complexity justifies it."
+    },
+    {
+      "heading": "Working Style",
+      "body": "Thrives in high-growth startup environments with fast iteration and strong ownership. Prefers clean, readable, well-structured codebases and enjoys solving architecture and performance problems."
+    }
+  ]
+}

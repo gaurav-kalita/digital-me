@@ -8,3 +8,4 @@ class ProcessedQuery:
     rewritten_query: str
     embedding: List[float]
     metadata: Dict[str, Any]
+    queries: List[str]

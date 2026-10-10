@@ -1,0 +1,106 @@
+{
+  "title": "Gaurav Kalita FAQ",
+  "document_type": "faq",
+  "category": "career",
+  "owner": "Gaurav Kalita",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "qa_pairs": [
+    {
+      "id": "faq-1",
+      "question": "What kind of engineer are you?",
+      "answer": "I’m a Full-Stack Engineer with strong specialization in frontend architecture using React, Next.js, and TypeScript, while also building scalable backend systems and AI-powered applications."
+    },
+    {
+      "id": "faq-2",
+      "question": "What are your strongest technical skills?",
+      "answer": "My strongest skills are frontend engineering, scalable UI architecture, React ecosystem development, TypeScript, Next.js, and maintainable component-driven systems. I also have strong backend and cloud experience."
+    },
+    {
+      "id": "faq-3",
+      "question": "Are you more frontend or backend focused?",
+      "answer": "Frontend is my strongest area, especially architecture, performance optimization, state management, and scalable UI systems. I’m still comfortable owning backend systems, cloud infrastructure, and end-to-end product delivery."
+    },
+    {
+      "id": "faq-4",
+      "question": "What type of projects excite you the most?",
+      "answer": "I enjoy building scalable products that combine strong frontend experiences with distributed backend systems and AI capabilities, especially RAG systems, AI agents, developer tools, and high-scale SaaS platforms."
+    },
+    {
+      "id": "faq-5",
+      "question": "How do you make architecture decisions?",
+      "answer": "I make architecture decisions pragmatically based on business requirements, expected scale, engineering bandwidth, future product direction, budget, and speed-to-market needs."
+    },
+    {
+      "id": "faq-6",
+      "question": "Do you prefer monoliths or microservices?",
+      "answer": "It depends on the stage and complexity of the product. I usually prefer modular monoliths for early products, and service decomposition when scale and domain complexity make it worthwhile."
+    },
+    {
+      "id": "faq-7",
+      "question": "What is your experience with AI systems?",
+      "answer": "I’ve been building AI-powered applications using OpenAI APIs, LangChain, vector databases, and RAG architectures. My focus is on retrieval quality, streaming responses, orchestration workflows, and reliable integrations."
+    },
+    {
+      "id": "faq-8",
+      "question": "What kind of teams do you work best in?",
+      "answer": "I work best in high-growth startup environments where engineers have strong ownership, move fast, and contribute across the stack."
+    },
+    {
+      "id": "faq-9",
+      "question": "What frustrates you most in engineering projects?",
+      "answer": "Poorly structured codebases, unnecessary complexity, lack of maintainability, and weak engineering ownership."
+    },
+    {
+      "id": "faq-10",
+      "question": "What are your long-term career goals?",
+      "answer": "My goal is to become highly proficient at designing scalable distributed systems and AI-powered platforms while continuing to grow as a strong full-stack product engineer."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Q: What kind of engineer are you?",
+      "body": "A: I’m a Full-Stack Engineer with strong specialization in frontend architecture using React, Next.js, and TypeScript, while also building scalable backend systems and AI-powered applications."
+    },
+    {
+      "heading": "Q: What are your strongest technical skills?",
+      "body": "A: My strongest skills are frontend engineering, scalable UI architecture, React ecosystem development, TypeScript, Next.js, and maintainable component-driven systems. I also have strong backend and cloud experience."
+    },
+    {
+      "heading": "Q: Are you more frontend or backend focused?",
+      "body": "A: Frontend is my strongest area, especially architecture, performance optimization, state management, and scalable UI systems. I’m still comfortable owning backend systems, cloud infrastructure, and end-to-end product delivery."
+    },
+    {
+      "heading": "Q: What type of projects excite you the most?",
+      "body": "A: I enjoy building scalable products that combine strong frontend experiences with distributed backend systems and AI capabilities, especially RAG systems, AI agents, developer tools, and high-scale SaaS platforms."
+    },
+    {
+      "heading": "Q: How do you make architecture decisions?",
+      "body": "A: I make architecture decisions pragmatically based on business requirements, expected scale, engineering bandwidth, future product direction, budget, and speed-to-market needs."
+    },
+    {
+      "heading": "Q: Do you prefer monoliths or microservices?",
+      "body": "A: It depends on the stage and complexity of the product. I usually prefer modular monoliths for early products, and service decomposition when scale and domain complexity make it worthwhile."
+    },
+    {
+      "heading": "Q: What is your experience with AI systems?",
+      "body": "A: I’ve been building AI-powered applications using OpenAI APIs, LangChain, vector databases, and RAG architectures. My focus is on retrieval quality, streaming responses, orchestration workflows, and reliable integrations."
+    },
+    {
+      "heading": "Q: What kind of teams do you work best in?",
+      "body": "A: I work best in high-growth startup environments where engineers have strong ownership, move fast, and contribute across the stack."
+    },
+    {
+      "heading": "Q: What frustrates you most in engineering projects?",
+      "body": "A: Poorly structured codebases, unnecessary complexity, lack of maintainability, and weak engineering ownership."
+    },
+    {
+      "heading": "Q: What are your long-term career goals?",
+      "body": "A: My goal is to become highly proficient at designing scalable distributed systems and AI-powered platforms while continuing to grow as a strong full-stack product engineer."
+    }
+  ]
+}

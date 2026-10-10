@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Digital Me Autofill",
+  "version": "0.1.0",
+  "description": "Scan the current form and fill it using grounded answers from the Digital Me ai-service.",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Digital Me Autofill",
+    "default_popup": "src/popup/popup.html"
+  },
+  "options_page": "src/options/options.html"
+}

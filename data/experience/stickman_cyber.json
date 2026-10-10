@@ -1,0 +1,77 @@
+{
+  "title": "Stickman Cyber Experience",
+  "document_type": "experience",
+  "category": "work_history",
+  "owner": "Gaurav Kalita",
+  "company": "Stickman Cyber",
+  "role": "Lead Frontend Engineer",
+  "employment_type": "full-time",
+  "start_date": "2024-05",
+  "end_date": null,
+  "status": "current",
+  "location": "Remote",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "summary": "Leads end-to-end frontend architecture and development for an automated AI-assisted cybersecurity platform.",
+  "responsibilities": [
+    "Architect the frontend for the platform.",
+    "Lead the small engineering team.",
+    "Support backend engineers by helping create APIs and integration contracts.",
+    "Contribute to backend implementation in a .NET and Azure stack when needed."
+  ],
+  "achievements": [
+    {
+      "title": "Cybersecurity maturity assessment SaaS platform",
+      "impact": "Used by 50+ enterprise security consultants",
+      "details": "Built a scalable React 18 + TypeScript application using Redux Toolkit, React Query, WebSockets, and optimized state management patterns."
+    },
+    {
+      "title": "Reusable component system",
+      "impact": "Improved consistency across the product ecosystem",
+      "details": "Designed and maintained a Storybook-based component library with 40+ documented UI components."
+    },
+    {
+      "title": "Backend support and scaling",
+      "impact": "Reduced processing bottlenecks and API latency significantly",
+      "details": "Developed ASP.NET Core 8 backend APIs with RBAC, JWT authentication, Azure App Services, Azure Functions, Azure Service Bus, Redis caching, SQL query optimization, and multi-tenant data isolation."
+    }
+  ],
+  "tech_stack": [
+    "React 18",
+    "TypeScript",
+    "Redux Toolkit",
+    "React Query",
+    "WebSockets",
+    "Storybook",
+    "ASP.NET Core 8",
+    "Azure App Services",
+    "Azure Functions",
+    "Azure Service Bus",
+    "Redis",
+    "SQL",
+    "RBAC",
+    "JWT"
+  ],
+  "sections": [
+    {
+      "heading": "Role Summary",
+      "body": "Lead Frontend Engineer at Stickman Cyber since May 2024, working remotely. Architects the frontend and leads the team for an automated AI-assisted cybersecurity platform."
+    },
+    {
+      "heading": "Responsibilities",
+      "body": "Owns frontend architecture and development. Supports backend engineers with API design and integration. Contributes to backend work when needed in a .NET and Azure environment."
+    },
+    {
+      "heading": "Key Achievements",
+      "body": "Built a cybersecurity maturity assessment SaaS platform used by 50+ enterprise security consultants. Created a Storybook-based component system with 40+ documented UI components. Improved backend performance using Azure Functions, Azure Service Bus, Redis caching, and SQL query optimization."
+    },
+    {
+      "heading": "Tech Stack",
+      "body": "React 18, TypeScript, Redux Toolkit, React Query, WebSockets, Storybook, ASP.NET Core 8, Azure App Services, Azure Functions, Azure Service Bus, Redis, SQL, RBAC, JWT."
+    }
+  ]
+}

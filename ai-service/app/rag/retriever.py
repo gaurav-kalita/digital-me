@@ -3,16 +3,17 @@
 import math
 import re
 from collections import Counter
-from typing import Iterable, List, Optional
+from typing import Iterable, List
 
 from app.core.logger import logger
+from app.core.ports import RetrievalGateway
 from app.data_layer.models import RetrievalResult
 from app.repositories.vector_repository import VectorRepository
 
 TOKEN_PATTERN = re.compile(r"[a-zA-Z0-9']+")
 
 
-class Retriever:
+class Retriever(RetrievalGateway):
     """Runs vector retrieval across query variants and fuses scores.
 
     FAISS provides dense retrieval. This layer adds a sparse lexical fusion
@@ -20,8 +21,8 @@ class Retriever:
     a specific hybrid-search database API.
     """
 
-    def __init__(self, repository: Optional[VectorRepository] = None):
-        self.repository = repository or VectorRepository()
+    def __init__(self, repository: VectorRepository):
+        self.repository = repository
 
     async def retrieve(self, queries: Iterable[str]) -> List[RetrievalResult]:
         deduped = {}

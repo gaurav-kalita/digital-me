@@ -9,3 +9,4 @@ pytest
 sentence_transformers
 PyJWT
 faiss-cpu
+redis

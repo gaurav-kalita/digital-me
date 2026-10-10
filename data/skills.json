@@ -1,0 +1,110 @@
+{
+  "title": "Gaurav Kalita Skills Matrix",
+  "document_type": "skills",
+  "category": "expertise",
+  "owner": "Gaurav Kalita",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "skills": [
+    {
+      "category": "Frontend Engineering",
+      "items": [
+        "React 18/19",
+        "Next.js 14",
+        "Angular 17",
+        "TypeScript",
+        "Redux Toolkit",
+        "React Query",
+        "NgRx",
+        "RxJS",
+        "Zustand",
+        "SSR/SSG",
+        "App Router",
+        "Design Systems",
+        "Storybook",
+        "Tailwind CSS",
+        "Accessibility (WCAG)",
+        "Core Web Vitals"
+      ]
+    },
+    {
+      "category": "Backend Engineering",
+      "items": [
+        "Node.js / Express.js",
+        "ASP.NET Core 8",
+        "Spring Boot",
+        "REST APIs",
+        "JWT Authentication",
+        "OAuth2",
+        "RBAC",
+        "Microservices",
+        "CQRS",
+        "Clean Architecture",
+        "DDD",
+        "Async Processing",
+        "Event-driven Systems",
+        "Caching",
+        "Multitenancy"
+      ]
+    },
+    {
+      "category": "AI and Data",
+      "items": [
+        "RAG Systems",
+        "OpenAI APIs",
+        "Azure OpenAI",
+        "LangChain",
+        "LangChain.js",
+        "Pinecone",
+        "Vector Search",
+        "SSE Streaming",
+        "Prompt Orchestration"
+      ]
+    },
+    {
+      "category": "Cloud and DevOps",
+      "items": [
+        "AWS",
+        "Azure",
+        "Docker",
+        "GitHub Actions",
+        "CI/CD",
+        "Monitoring",
+        "Deployment Automation"
+      ]
+    },
+    {
+      "category": "Databases",
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "Microsoft SQL Server",
+        "Redis",
+        "DynamoDB",
+        "Elasticsearch"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Frontend Engineering",
+      "body": "React 18/19, Next.js 14, Angular 17, TypeScript, Redux Toolkit, React Query, NgRx, RxJS, Zustand, SSR/SSG, App Router, Design Systems, Storybook, Tailwind CSS, Accessibility, and Core Web Vitals."
+    },
+    {
+      "heading": "Backend Engineering",
+      "body": "Node.js / Express.js, ASP.NET Core 8, Spring Boot, REST APIs, JWT Authentication, OAuth2, RBAC, Microservices, CQRS, Clean Architecture, DDD, Async Processing, Event-driven Systems, Caching, and Multitenancy."
+    },
+    {
+      "heading": "AI and Data",
+      "body": "RAG Systems, OpenAI APIs, Azure OpenAI, LangChain, LangChain.js, Pinecone, Vector Search, SSE Streaming, and Prompt Orchestration."
+    },
+    {
+      "heading": "Cloud and DevOps",
+      "body": "AWS, Azure, Docker, GitHub Actions, CI/CD, Monitoring, and Deployment Automation."
+    }
+  ]
+}

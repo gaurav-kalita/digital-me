@@ -39,9 +39,8 @@ class ChunkerFactory:
                     encoding=encoding,
                 )
             except Exception:
-                logger.warning(
-                    "Falling back to WordTokenChunker because tokenizer-backed chunker could not be initialized",
-                    exc_info=True,
+                logger.opt(exception=True).warning(
+                    "Falling back to WordTokenChunker because tokenizer-backed chunker could not be initialized"
                 )
                 return WordTokenChunker(chunk_size_tokens=size, chunk_overlap_tokens=overlap)
 
@@ -54,10 +53,7 @@ class ChunkerFactory:
                     tokenizer=tokenizer,
                 )
             except Exception:
-                logger.warning(
-                    "Falling back to WordTokenChunker because HuggingFace tokenizer failed",
-                    exc_info=True,
-                )
+                logger.opt(exception=True).warning("Falling back to WordTokenChunker because HuggingFace tokenizer failed")
                 return WordTokenChunker(chunk_size_tokens=size, chunk_overlap_tokens=overlap)
 
         raise ValueError("Unsupported chunker type: %s" % selected_type)

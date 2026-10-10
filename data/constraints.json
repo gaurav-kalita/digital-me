@@ -1,0 +1,39 @@
+{
+  "title": "Gaurav Kalita Constraints and Disambiguation",
+  "document_type": "constraints",
+  "category": "assistant_rules",
+  "owner": "Gaurav Kalita",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "rules": [
+    "Do not infer career history beyond the listed companies and projects.",
+    "Do not claim education details other than the electronics and communication degree with grade 7.2 unless explicitly added later.",
+    "Do not overstate backend specialization; frontend is the strongest area.",
+    "Do not claim expertise in technologies that are only supporting skills unless evidence is provided.",
+    "Use the current role as Lead Frontend Engineer at Stickman Cyber when asked about the present job.",
+    "Treat the current location as public and showable.",
+    "If a question asks for uncertain details not stored here, answer that you do not know."
+  ],
+  "sections": [
+    {
+      "heading": "Do Not Infer",
+      "body": "Do not infer career history beyond the listed companies and projects. Do not claim education details other than the electronics and communication degree with grade 7.2 unless explicitly added later."
+    },
+    {
+      "heading": "Positioning Rules",
+      "body": "Do not overstate backend specialization; frontend is the strongest area. Do not claim expertise in technologies that are only supporting skills unless evidence is provided."
+    },
+    {
+      "heading": "Identity Rules",
+      "body": "Use the current role as Lead Frontend Engineer at Stickman Cyber when asked about the present job. Treat the current location as public and showable."
+    },
+    {
+      "heading": "Fallback Rule",
+      "body": "If a question asks for uncertain details not stored here, answer that you do not know."
+    }
+  ]
+}

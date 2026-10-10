@@ -26,17 +26,22 @@ class EmbedderFactory:
             return HashingEmbedder(dimensions=selected_dimensions)
 
         if selected_type in {"sentence_transformer", "sentence-transformer", "st"}:
-            return SentenceTransformerEmbedder(selected_model)
+            return SentenceTransformerEmbedder(
+                selected_model,
+                local_files_only=settings.embedding.local_files_only,
+            )
 
         if selected_type == "auto":
             if selected_model:
                 try:
                     logger.info("Using sentence-transformer embedder", extra={"model": selected_model})
-                    return SentenceTransformerEmbedder(selected_model)
+                    return SentenceTransformerEmbedder(
+                        selected_model,
+                        local_files_only=settings.embedding.local_files_only,
+                    )
                 except Exception:
-                    logger.warning(
-                        "Falling back to hashing embedder because sentence-transformer init failed",
-                        exc_info=True,
+                    logger.opt(exception=True).warning(
+                        "Falling back to hashing embedder because sentence-transformer init failed"
                     )
             return HashingEmbedder(dimensions=selected_dimensions)
 

@@ -1,0 +1,44 @@
+{
+  "title": "Gaurav Kalita Metrics",
+  "document_type": "metrics",
+  "category": "impact",
+  "owner": "Gaurav Kalita",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "metrics": [
+    {
+      "label": "Security consultants using Stickman Cyber platform",
+      "value": "50+"
+    },
+    {
+      "label": "Documented UI components in Storybook",
+      "value": "40+"
+    },
+    {
+      "label": "Global clients served at Vantage Circle",
+      "value": "500+"
+    },
+    {
+      "label": "Lead conversion improvement",
+      "value": "50%"
+    },
+    {
+      "label": "PageSpeed improvement",
+      "value": "70 to 90"
+    },
+    {
+      "label": "Junior engineers mentored",
+      "value": "2"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Impact Metrics",
+      "body": "50+ consultants using the Stickman Cyber platform, 40+ Storybook components, 500+ global clients at Vantage Circle, 50% lead conversion improvement, PageSpeed improvement from 70 to 90, and mentoring 2 junior engineers."
+    }
+  ]
+}

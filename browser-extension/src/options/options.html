@@ -1,0 +1,63 @@
+<!-- browser-extension/src/options/options.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Me Autofill Settings</title>
+    <link rel="stylesheet" href="./options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Settings</p>
+        <h1>Autofill backend and safety policy</h1>
+        <p class="lede">Configure the RAG backend and how aggressively the extension fills fields.</p>
+      </section>
+
+      <form id="settingsForm" class="card">
+        <label>
+          <span>Primary backend URL</span>
+          <input id="primaryBackendUrl" type="url" placeholder="http://127.0.0.1:8000" />
+        </label>
+
+        <label>
+          <span>Fallback backend URL</span>
+          <input id="fallbackBackendUrl" type="url" placeholder="http://127.0.0.1:8000" />
+        </label>
+
+        <label class="check">
+          <input id="autoFillHighRisk" type="checkbox" />
+          <span>Allow high-risk fields to be auto-filled</span>
+        </label>
+
+        <label class="check">
+          <input id="highlightFilledFields" type="checkbox" />
+          <span>Highlight fields after fill</span>
+        </label>
+
+        <label>
+          <span>Request timeout (ms)</span>
+          <input id="requestTimeoutMs" type="number" min="3000" step="500" />
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="primary">Save settings</button>
+          <button id="resetButton" type="button" class="secondary">Reset defaults</button>
+        </div>
+      </form>
+
+      <section class="card">
+        <p class="eyebrow">Notes</p>
+        <ul>
+          <li>Requires <code>POST /forms/plan</code> on ai-service (included in this repo).</li>
+          <li>The extension falls back to <code>/chat/</code> if the plan endpoint is not available.</li>
+          <li>High-risk fields such as passwords and OTPs are always blocked by the content script.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script type="module" src="./options.js"></script>
+  </body>
+</html>
+

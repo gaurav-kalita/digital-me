@@ -1,0 +1,78 @@
+{
+  "title": "Vantage Circle Experience",
+  "document_type": "experience",
+  "category": "work_history",
+  "owner": "Gaurav Kalita",
+  "company": "Vantage Circle",
+  "role": "Software Engineer",
+  "employment_type": "full-time",
+  "start_date": "2021-02",
+  "end_date": "2024-05",
+  "status": "past",
+  "location": "Guwahati, India",
+  "metadata": {
+    "version": "1.0",
+    "source_system": "manual-curated",
+    "confidence": "high",
+    "updated_at": "2026-05-23"
+  },
+  "summary": "Built frontend and backend systems for enterprise HR-tech products serving global clients and Fortune 500 organizations.",
+  "responsibilities": [
+    "Developed enterprise HR-tech products across feedback, survey, milestone, and rewards platforms.",
+    "Built frontend applications using React, Angular, TypeScript, NgRx, and RxJS.",
+    "Worked on Spring Boot microservices and REST APIs.",
+    "Mentored junior engineers on frontend architecture, TypeScript, and testing best practices."
+  ],
+  "achievements": [
+    {
+      "title": "Enterprise product delivery",
+      "impact": "Used by 500+ global clients and Fortune 500 organizations",
+      "details": "Built employee feedback, survey, milestone, and rewards platforms."
+    },
+    {
+      "title": "Lead conversion improvement",
+      "impact": "Increased lead conversion by 50%",
+      "details": "Created marketing and CRO-focused interactive landing pages and tools."
+    },
+    {
+      "title": "Ghost to Gatsby migration",
+      "impact": "Improved PageSpeed score from 70 to 90",
+      "details": "Migrated a Ghost-based blog platform to Gatsby and improved SEO performance."
+    },
+    {
+      "title": "Delivery automation",
+      "impact": "Improved release and deployment efficiency",
+      "details": "Automated CI/CD workflows with GitHub Actions and Gulp."
+    }
+  ],
+  "tech_stack": [
+    "React",
+    "Angular",
+    "TypeScript",
+    "NgRx",
+    "RxJS",
+    "Spring Boot",
+    "REST APIs",
+    "GitHub Actions",
+    "Gulp",
+    "Jest"
+  ],
+  "sections": [
+    {
+      "heading": "Role Summary",
+      "body": "Software Engineer at Vantage Circle from February 2021 to May 2024 in Guwahati, India. Built enterprise HR-tech products used by global clients."
+    },
+    {
+      "heading": "Responsibilities",
+      "body": "Developed frontend and backend systems for feedback, survey, milestone, and rewards products. Worked with React, Angular, TypeScript, NgRx, RxJS, Spring Boot microservices, and REST APIs."
+    },
+    {
+      "heading": "Key Achievements",
+      "body": "Built products used by 500+ global clients and Fortune 500 organizations. Created CRO tools that increased lead conversion by 50%. Migrated a Ghost blog to Gatsby and improved PageSpeed from 70 to 90. Automated CI/CD with GitHub Actions and Gulp."
+    },
+    {
+      "heading": "Tech Stack",
+      "body": "React, Angular, TypeScript, NgRx, RxJS, Spring Boot, REST APIs, GitHub Actions, Gulp, Jest."
+    }
+  ]
+}

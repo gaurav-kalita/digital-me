@@ -1,0 +1,37 @@
+<!-- browser-extension/src/popup/popup.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Me Autofill</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Digital Me Autofill</p>
+        <h1>Scan and fill the current form</h1>
+        <p class="lede">Grounded answers from your Digital Me ai-service.</p>
+      </header>
+
+      <section class="panel">
+        <button id="runButton" class="primary">Scan &amp; Fill</button>
+        <button id="settingsButton" class="secondary" type="button">Settings</button>
+      </section>
+
+      <section class="status-card">
+        <p class="label">Status</p>
+        <p id="status" class="status">Ready</p>
+      </section>
+
+      <section class="summary-card">
+        <p class="label">Last run</p>
+        <pre id="lastRun" class="summary">No run yet.</pre>
+      </section>
+    </main>
+
+    <script type="module" src="./popup.js"></script>
+  </body>
+</html>
+
